@@ -1,5 +1,5 @@
 if game.Players.LocalPlayer.Name == getgenv().Owner then
-    
+
 loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/iyedit/main/AC'))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
 
@@ -7,8 +7,8 @@ local LocalMouse = game.Players.LocalPlayer:GetMouse()
 local UserInputService = game:GetService("UserInputService")
 local plr = game.Players.LocalPlayer
 
-UserInputService.InputBegan:Connect(function(keygo,ok)
-    if (keygo.KeyCode == getgenv().Key) then
+	LocalMouse.KeyDown:connect(function(key)
+		if key == getgenv().Key then
             local Swing = Instance.new('Animation');
             Swing.AnimationId = "rbxassetid://3096047107";
 			local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
@@ -22,12 +22,13 @@ UserInputService.InputBegan:Connect(function(keygo,ok)
 	    end
 end)
 
-UserInputService.InputBegan:Connect(function(keygo,ok)
-if (keygo.KeyCode == getgenv().Key) then
+	LocalMouse.KeyDown:connect(function(key)
+		if key == getgenv().Key then
         plr =  getClosestPlayerToCursor()
             local A_1 = getgenv().command..tostring(plr.Character.Humanoid.DisplayName) local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
         end
 end)
+
 
 getgenv().Fov = 100
 getgenv().Circle = true
